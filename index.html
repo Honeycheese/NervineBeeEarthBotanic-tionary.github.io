@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4A553B">
+<title>Nervine Bee's Earth Botanic-tionary</title>
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --moss: #4A553B;          /* Xanh rêu chủ đạo */
+  --moss-mid: #5E6E4A;      /* Xanh rêu trung tính */
+  --moss-dark: #2F3824;     /* Xanh rêu đậm chữ */
+  --moss-soft: #E8EFE2;     /* Xanh rêu nhạt */
+  --blush: #F5D5C8;         /* Hồng phớt nền */
+  --blush-soft: #F9E5DD;    /* Hồng phớt sáng */
+  --blush-accent: #E2A391;  /* Hồng phớt nhấn */
+  --cream: #FCF6E3;         /* Vàng kem */
+  --cream-card: #FFFDF7;    /* Vàng kem sáng */
+  --text: #2F3824;
+  --muted: #5C6650;
+  --border: #D9C9B8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--blush);
+  color: var(--text);
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================= TOP NAVIGATION BAR (3 TAB NHƯ GOOGLE SITES) ================= */
+.site-nav {
+  background-color: var(--moss);
+  color: var(--cream);
+  padding: 10px 4%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid var(--cream);
+  box-shadow: 0 4px 14px rgba(47, 56, 36, 0.22);
+}
+
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--cream);
+}
+
+.site-brand img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2px;
+  border: 1.5px solid var(--blush);
+}
+
+.site-brand span {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-tab {
+  border: 0;
+  background: transparent;
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.88;
+}
+
+.nav-tab:hover {
+  opacity: 1;
+  background: rgba(252, 246, 227, 0.14);
+}
+
+.nav-tab.active {
+  opacity: 1;
+  background: var(--cream);
+  color: var(--moss);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* ================= BANNER SỬ DỤNG ẢNH BANNER.JPG CỦA BẠN ================= */
+.site-banner {
+  background-color: var(--moss);
+  background-image: linear-gradient(rgba(47, 56, 36, 0.42), rgba(47, 56, 36, 0.48)), url("banner.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--cream);
+  text-align: center;
+  padding: 46px 16px;
+  border-bottom: 3px solid var(--cream);
+}
+
+.site-banner h1 {
+  margin: 0;
+  font-size: clamp(24px, 3.6vw, 38px);
+  font-weight: 800;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.site-banner p {
+  margin: 8px 0 0;
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 600;
+  color: var(--cream);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* QUẢN LÝ 3 TAB TRANG */
+.tab-view {
+  display: none;
+}
+
+.tab-view.active {
+  display: block;
+}
+
+#app {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 18px 14px 28px;
+}
+
+/* ================= TRANG 1: HOME (GIỮ NGUYÊN 100% TÍNH NĂNG CODE GỐC) ================= */
+.globe-frame {
+  position: relative;
+  width: 100%;
+  height: min(74vh, 740px);
+  min-height: 490px;
+  max-height: 740px;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 3px solid var(--moss);
+  background:
+    radial-gradient(1.5px 1.5px at 14% 22%, rgba(255,255,255,0.85) 50%, transparent 100%),
+    radial-gradient(1px 1px at 28% 68%, rgba(255,255,255,0.7) 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 42% 16%, rgba(210,235,255,0.9) 50%, transparent 100%),
+    radial-gradient(1px 1px at 67% 28%, rgba(255,255,255,0.75) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 81% 74%, rgba(255,255,255,0.8) 50%, transparent 100%),
+    radial-gradient(1px 1px at 90% 19%, rgba(255,255,255,0.65) 50%, transparent 100%),
+    radial-gradient(circle at 50% 50%, #101b36 0%, #070b19 65%, #03050c 100%);
+  box-shadow: 0 18px 42px rgba(47, 56, 36, 0.25);
+}
+
+#globeViz {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#globeViz canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+/* LAYER SWITCHER & LEGEND PANEL */
+.map-overlay-top {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.layer-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  pointer-events: auto;
+  background: rgba(47, 56, 36, 0.86);
+  backdrop-filter: blur(10px);
+  padding: 6px;
+  border-radius: 15px;
+  border: 1px solid rgba(252, 246, 227, 0.28);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.layer-btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 7px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  color: var(--cream);
+  transition: all 0.2s ease;
+}
+
+.layer-btn:hover {
+  background: rgba(245, 213, 200, 0.2);
+  color: #ffffff;
+}
+
+.layer-btn.active {
+  background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+  color: var(--moss-dark);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* PANEL GHI CHÚ CHI TIẾT */
+.legend-panel {
+  pointer-events: auto;
+  background: rgba(47, 56, 36, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 13px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(252, 246, 227, 0.3);
+  font-size: 12px;
+  color: var(--cream);
+  width: 290px;
+  max-width: 100%;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.legend-panel.hidden {
+  display: none !important;
+}
+
+.legend-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.legend-title {
+  font-weight: 800;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.legend-unit {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(245, 213, 200, 0.25);
+  color: var(--blush);
+}
+
+.legend-desc {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #e8efe2;
+  margin-bottom: 8px;
+}
+
+.legend-bar {
+  height: 11px;
+  border-radius: 999px;
+  background: #87ab82;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.legend-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  color: var(--cream);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.legend-extremes {
+  margin-top: 8px;
+  padding-top: 7px;
+  border-top: 1px dashed rgba(252, 246, 227, 0.3);
+  font-size: 11px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.legend-extremes div {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+/* HOVER TOOLTIP */
+.globe-tooltip {
+  background: rgba(47, 56, 36, 0.95);
+  color: var(--cream);
+  padding: 8px 13px;
+  border-radius: 11px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 12px;
+  line-height: 1.45;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--blush);
+  pointer-events: none;
+}
+
+/* LOADING */
+.loading {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 25px;
+  text-align: center;
+  color: var(--cream);
+  background: rgba(24, 30, 18, 0.96);
+  font-size: 13.5px;
+}
+
+.loading.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(245, 213, 200, 0.25);
+  border-top-color: var(--blush);
+  border-radius: 50%;
+  animation: spin 0.85s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* TOOLBAR */
+.toolbar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 4px 6px;
+}
+
+.search-box {
+  display: flex;
+  flex: 1 1 250px;
+  max-width: 380px;
+  min-width: 180px;
+  gap: 6px;
+}
+
+.search-box input, .country-select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1.5px solid var(--moss);
+  border-radius: 12px;
+  background: var(--cream-card);
+  color: var(--moss-dark);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.country-select {
+  width: auto;
+  max-width: 220px;
+  cursor: pointer;
+}
+
+.search-box input:focus, .country-select:focus {
+  border-color: var(--moss);
+  box-shadow: 0 0 0 3px rgba(74, 85, 59, 0.2);
+}
+
+.ctrl-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s, background 0.18s, box-shadow 0.18s;
+}
+
+.ctrl-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  color: var(--cream);
+  background: var(--moss);
+  box-shadow: 0 3px 10px rgba(74, 85, 59, 0.28);
+}
+
+.btn-primary:hover {
+  background: var(--moss-dark);
+}
+
+.btn-soft {
+  color: var(--moss-dark);
+  background: var(--cream);
+  border: 1.5px solid var(--moss);
+}
+
+.btn-soft:hover {
+  background: var(--moss-soft);
+}
+
+.status-bar {
+  text-align: center;
+  padding: 6px 8px 10px;
+  font-size: 12.5px;
+  color: var(--moss-dark);
+  font-weight: 600;
+}
+
+.status-bar.error {
+  color: #8f2d2b;
+  background: #fdf2f2;
+  border: 1px solid #e6b8b7;
+  border-radius: 10px;
+  margin-top: 6px;
+  padding: 8px 12px;
+}
+
+/* ================= CENTERED POPUP MODAL (XANH RÊU - HỒNG PHỚT - VÀNG KEM) ================= */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(34, 41, 26, 0.65);
+  backdrop-filter: blur(5px);
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.info-modal {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  border: 2.5px solid var(--moss);
+  background: var(--cream);
+  box-shadow: 0 26px 64px rgba(34, 41, 26, 0.42);
+  overflow: hidden;
+  animation: popModal 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popModal {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 22px;
+  background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+  border-bottom: 2px solid var(--moss);
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: var(--moss-dark);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.modal-subtitle {
+  margin-top: 2px;
+  color: var(--moss);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid var(--moss);
+  border-radius: 11px;
+  padding: 3px;
+}
+
+.lang-btn {
+  border: 0;
+  padding: 5px 11px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  color: var(--moss-dark);
+}
+
+.lang-btn.active {
+  background: var(--moss);
+  color: var(--cream);
+}
+
+.modal-body {
+  padding: 20px 24px 28px;
+  overflow-y: auto;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 7px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: var(--moss-mid);
+  border-radius: 999px;
+}
+
+.section-title {
+  margin: 22px 0 10px;
+  color: var(--moss-dark);
+  font-size: 15.5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.section-title.centered {
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-flower-card {
+  padding: 15px 18px;
+  border-left: 5px solid var(--moss);
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--blush-soft) 0%, var(--cream-card) 100%);
+  border-top: 1px solid var(--blush-accent);
+  border-right: 1px solid var(--blush-accent);
+  border-bottom: 1px solid var(--blush-accent);
+  margin-bottom: 14px;
+}
+
+.hero-flower-card .label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--moss);
+  font-weight: 800;
+}
+
+.hero-flower-card .flower-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--moss-dark);
+  margin: 3px 0 2px;
+}
+
+.hero-flower-card .sci-name {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+/* MEDIA GALLERY */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.media-card {
+  border: 1.5px solid var(--moss);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(47, 56, 36, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.media-square-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--blush-soft) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.media-square-wrap img.photo-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-square-wrap img.drawing-contain {
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  display: block;
+  border-radius: 10px;
+}
+
+.media-card .caption {
+  padding: 9px 12px;
+  font-size: 12px;
+  color: var(--cream);
+  font-weight: 700;
+  text-align: center;
+  background: var(--moss);
+}
+
+/* AUDIO PLAYER */
+.audio-section-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.audio-card {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 15px 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--blush-soft) 0%, var(--moss-soft) 100%);
+  border: 1.5px solid var(--moss);
+  box-shadow: 0 6px 18px rgba(74, 85, 59, 0.12);
+  text-align: center;
+}
+
+.audio-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 11px;
+  color: var(--moss-dark);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.audio-ext-link {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--moss-dark);
+  text-decoration: none;
+  background: var(--cream);
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--moss);
+  transition: all 0.2s ease;
+}
+
+.audio-ext-link:hover {
+  background: var(--moss);
+  color: var(--cream);
+}
+
+.audio-card audio {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: block;
+  height: 40px;
+  border-radius: 999px;
+  outline: none;
+}
+
+.embed-audio-frame {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  height: 82px;
+  border: 0;
+  border-radius: 12px;
+  background: #ffffff;
+  display: block;
+}
+
+/* OTHER FLOWERS */
+.flower-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.flower-card {
+  padding: 13px;
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--moss);
+  border-radius: 15px;
+  background: var(--cream-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flower-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-native {
+  background: var(--moss);
+  color: var(--cream);
+}
+
+.badge-common {
+  background: var(--blush);
+  color: var(--moss-dark);
+}
+
+.flower-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 11px;
+  margin-top: 10px;
+  background: var(--moss-soft);
+}
+
+/* NATURE STATS */
+.nature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 11px;
+}
+
+.stat-box {
+  padding: 11px 13px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, var(--moss-soft) 0%, var(--blush-soft) 100%);
+  border: 1px solid var(--border);
+}
+
+.stat-box .stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.stat-box .stat-value {
+  font-size: 15px;
+  color: var(--moss-dark);
+  font-weight: 800;
+  margin-top: 3px;
+}
+
+.nature-detail-list {
+  background: var(--cream-card);
+  border: 1.5px solid var(--border);
+  border-radius: 15px;
+  padding: 12px 16px;
+}
+
+.nature-detail-list p {
+  margin: 6px 0;
+}
+
+/* ================= TRANG 2: ABOUT US (GIỐNG ẢNH GOOGLE SITES, BỎ 2 BẢNG DƯỚI) ================= */
+.about-container {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 36px 20px 48px;
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-logo-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 16px;
+  border: 2px solid var(--moss);
+  box-shadow: 0 8px 22px rgba(47, 56, 36, 0.1);
+}
+
+.about-logo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fun-fact-card {
+  background: var(--cream);
+  padding: 16px;
+  border-radius: 16px;
+  border-left: 5px solid var(--moss);
+  font-size: 13.5px;
+  line-height: 1.65;
+  box-shadow: 0 6px 18px rgba(47, 56, 36, 0.08);
+}
+
+.fun-fact-card p {
+  margin: 0 0 10px;
+}
+
+.fun-fact-card p:last-child {
+  margin-bottom: 0;
+}
+
+.about-right {
+  background: var(--cream);
+  padding: 28px 32px;
+  border-radius: 22px;
+  border: 2px solid var(--moss);
+  box-shadow: 0 10px 26px rgba(47, 56, 36, 0.1);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.lang-tag {
+  display: inline-block;
+  background: var(--moss);
+  color: var(--cream);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  letter-spacing: 0.4px;
+}
+
+.about-right p {
+  margin: 0 0 14px;
+}
+
+.about-en {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 2px dashed var(--blush-accent);
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* ================= TRANG 3: SOURCES (GIỮ NGUYÊN NỘI DUNG TỪ ẢNH CỦA BẠN) ================= */
+.sources-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 36px 20px 48px;
+}
+
+.sources-card {
+  background: var(--cream);
+  padding: 32px 36px;
+  border-radius: 22px;
+  border: 2px solid var(--moss);
+  box-shadow: 0 10px 26px rgba(47, 56, 36, 0.1);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.sources-card h2 {
+  margin: 0 0 8px;
+  color: var(--moss-dark);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.sources-card h3 {
+  margin: 22px 0 6px;
+  color: var(--moss-dark);
+  font-size: 16.5px;
+  font-weight: 800;
+}
+
+.sources-ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 14px;
+}
+
+.sources-ul li {
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.sources-ul li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: var(--moss);
+}
+
+.sources-divider {
+  margin: 30px 0;
+  border: 0;
+  border-top: 2px dashed var(--blush-accent);
+}
+
+@media (max-width: 780px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+  .about-logo-card {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+  .sources-card {
+    padding: 22px 20px;
+  }
+  .globe-frame {
+    height: 64vh;
+    min-height: 440px;
+  }
+  .legend-panel {
+    width: 100%;
+    padding: 9px 12px;
+  }
+  .modal-header {
+    padding: 13px 15px;
+  }
+  .modal-body {
+    padding: 15px 16px 22px;
+  }
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+  <!-- THANH ĐIỀU HƯỚNG 3 TAB NHƯ GOOGLE SITES -->
+  <nav class="site-nav">
+    <a class="site-brand" onclick="switchTab('home')">
+      <img src="logo.jpg" alt="Nervine Bee Logo">
+      <span>Nervine Bee's Earth Botanic-tionary</span>
+    </a>
+    <div class="nav-tabs">
+      <button class="nav-tab active" id="tab-btn-home" onclick="switchTab('home')">Home</button>
+      <button class="nav-tab" id="tab-btn-about" onclick="switchTab('about')">About us</button>
+      <button class="nav-tab" id="tab-btn-sources" onclick="switchTab('sources')">Sources</button>
+    </div>
+  </nav>
+
+  <!-- ================= TAB 1: HOME ================= -->
+  <div id="tab-home" class="tab-view active">
+    <header class="site-banner">
+      <h1>🌸 Earth Botanic-tionary</h1>
+      <p>Khám phá thế giới quốc hoa, đa dạng thực vật và bản đồ sinh thái 3D</p>
+    </header>
+
+    <div id="app">
+      <section class="globe-frame">
+        <div id="globeViz"></div>
+
+        <!-- LAYER SWITCHER & PANEL GHI CHÚ -->
+        <div class="map-overlay-top">
+          <div class="layer-pills" id="layerPills">
+            <button class="layer-btn active" data-layer="default">🌍 Mặc định</button>
+            <button class="layer-btn" data-layer="soilMoisture">💧 Độ ẩm đất</button>
+            <button class="layer-btn" data-layer="annualRainfall">🌧️ Lượng mưa</button>
+            <button class="layer-btn" data-layer="meanTemperature">🌡️ Nhiệt độ</button>
+            <button class="layer-btn" data-layer="area">📐 Diện tích</button>
+          </div>
+
+          <aside class="legend-panel hidden" id="legendPanel">
+            <div class="legend-header">
+              <span class="legend-title" id="legendTitle">Độ ẩm đất trung bình</span>
+              <span class="legend-unit" id="legendUnit">m³/m³</span>
+            </div>
+            <div class="legend-desc" id="legendDesc"></div>
+            <div class="legend-bar" id="legendBar"></div>
+            <div class="legend-labels">
+              <span id="legendMin">Thấp</span>
+              <span id="legendMax">Cao</span>
+            </div>
+            <div class="legend-extremes" id="legendExtremes"></div>
+          </aside>
+        </div>
+
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <strong>Welcome to Earth Botanic-tionary</strong>
+          <span id="loadingText">Đang khởi tạo quả địa cầu 3D...</span>
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Tìm quốc gia: Vietnam, Japan, VNM...">
+          <button class="ctrl-btn btn-primary" id="searchBtn">Tìm</button>
+        </div>
+
+        <select id="countrySelect" class="country-select" aria-label="Chọn nhanh quốc gia">
+          <option value="">-- Chọn nhanh quốc gia --</option>
+        </select>
+
+        <button class="ctrl-btn btn-soft" id="zoomIn">＋ Phóng to</button>
+        <button class="ctrl-btn btn-soft" id="zoomOut">－ Thu nhỏ</button>
+        <button class="ctrl-btn btn-soft" id="resetBtn">⟳ Đặt lại</button>
+        <button class="ctrl-btn btn-soft" id="rotateBtn">⏸ Tạm dừng</button>
+        <button class="ctrl-btn btn-soft" id="reloadDataBtn" title="Tải lại dữ liệu từ Google Sheets">🔄 Đồng bộ dữ liệu</button>
+      </div>
+
+      <div class="status-bar" id="statusBar">
+        Đang đồng bộ dữ liệu từ Google Sheets...
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TAB 2: ABOUT US ================= -->
+  <div id="tab-about" class="tab-view">
+    <header class="site-banner">
+      <h1>Some basic information about us ☀️</h1>
+      <p>Một số thông tin cơ bản về chúng tôi</p>
+    </header>
+
+    <div class="about-container">
+      <div class="about-left">
+        <div class="about-logo-card">
+          <img src="logo.jpg" alt="Nervine Bee Logo">
+        </div>
+        <div class="fun-fact-card">
+          <p><strong>Sự thật thú vị:</strong> "Nervine Bee" mang ý nghĩa là "Chú ong mật dễ chịu".</p>
+          <p>"Nervine" là thuật ngữ để chỉ những loại thảo dược có tác dụng hỗ trợ hoặc điều hòa hệ thần kinh, còn "Bee" là ong.</p>
+          <hr style="border:0; border-top:1px dashed var(--blush-accent); margin:10px 0;">
+          <p style="font-style:italic;"><strong>Fun fact:</strong> "Nervine Bee" means "The calming honey bee."</p>
+          <p style="font-style:italic;">"Nervine" is a term referring to herbs that support or regulate the nervous system, while "Bee" just means bee.</p>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div>
+          <span class="lang-tag">TIẾNG VIỆT</span>
+          <p>Xin chào mọi người, tôi là Nervine Bee, người sáng tạo trang web này.</p>
+          <p>Tôi cảm thấy khá thích thú với cây cối và hoa cỏ được một thời gian rồi, nên tôi hình dung được đây là dịp hoàn hảo để tìm hiểu về chủ đề này, cũng như trải nghiệm những thứ mới - Như làm một website.</p>
+          <p>Qua Từ điển Sinh học Trái đất, tôi đặt mục tiêu giới thiệu những nét đặc trưng về sinh học của từng quốc gia qua thông tin cơ bản, nhạc và tranh ảnh.</p>
+          <p>Tôi hy vọng trang web này hữu ích (Hoặc thú vị) đối với tất cả các bạn. Cảm ơn vì đã dành thời gian tại đây!</p>
+        </div>
+
+        <div class="about-en">
+          <span class="lang-tag">TIẾNG ANH</span>
+          <p>Hello there, I'm Nervine Bee, the developer behind this website.</p>
+          <p>I've been pretty interested in plants and flowers for a while now, so I figured this was the perfect occasion for me to do research on this topic, and also experience something new - Making a website.</p>
+          <p>Through Earth Botanic-tionary, I strive to introduce others to each nation's unique botanical specialties, via basic facts, music and doodles.</p>
+          <p>I hope this website was useful (Or entertaining) for you all. Thank for your time!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TAB 3: SOURCES ================= -->
+  <div id="tab-sources" class="tab-view">
+    <header class="site-banner">
+      <h1>Nguồn thông tin chúng tôi sử dụng</h1>
+      <p>Where we source our info from</p>
+    </header>
+
+    <div class="sources-container">
+      <div class="sources-card">
+        <h2>Vậy, chúng tôi lấy thông tin và nội dung từ đâu?</h2>
+        <p style="font-weight:700; color:var(--moss); margin:0;">Đây là những nguồn thông tin (và cảm hứng) của chúng tôi:</p>
+        <ul class="sources-ul">
+          <li>Cơ sở dữ liệu của NASA Space Apps Challenge 2026.</li>
+          <li>Trang web chính thức của NASA.</li>
+          <li>Danh mục dữ liệu mở của NASA.</li>
+          <li>NASA SMAP.</li>
+          <li>NASA GISS Phân tích Nhiệt độ.</li>
+          <li>UNESCO WRB.</li>
+          <li>Các vùng sinh thái trên cạn của thế giới (theo WWF) &amp; Các vùng sinh thái (theo RESOLVE, 2017).</li>
+          <li>GBIF.</li>
+          <li>UNEP-WCMC.</li>
+          <li>CIA World Factbook.</li>
+          <li>Cuốn "The Herb Book" và ấn phẩm đi kèm, "The Tree Book".</li>
+          <li>"Quyền năng của hoa".</li>
+          <li>Wikipedia.</li>
+        </ul>
+        <p>Khá nhiều phải không nào?</p>
+
+        <h3>Vậy còn âm nhạc và hình vẽ thì sao?</h3>
+        <p>Tôi tự vẽ các loài hoa bằng ứng dụng Sketchbook (Một ứng dụng miễn phí!), sau đó sử dụng EGANE (Một trang web tổng hợp âm thanh – bạn cũng có thể dùng thử đấy!) để tùy chỉnh các thông số cho đến khi ưng ý. Cuối cùng, tôi ghi âm lại rồi đưa vào các cửa sổ bật lên (pop-up)!</p>
+
+        <h3>Còn các hình ảnh khác thì sao?</h3>
+        <p>Tôi tìm kiếm trên mạng những hình ảnh không đánh bản quyền để sử dụng!</p>
+
+        <hr class="sources-divider">
+
+        <h2>So, where do we source our information and content from?</h2>
+        <p style="font-weight:700; color:var(--moss); margin:0;">This is where we source our information (And inspiration) from:</p>
+        <ul class="sources-ul">
+          <li>NASA Space Apps Challenge 2026 database.</li>
+          <li>NASA's official website.</li>
+          <li>NASA open data catalogue.</li>
+          <li>NASA SMAP.</li>
+          <li>NASA GISS Temperature Analysis.</li>
+          <li>UNESCO WRB.</li>
+          <li>Terrestrial Ecoregions of the World (by WWF) &amp; Ecoregions (by RESOLVE, 2017).</li>
+          <li>GBIF.</li>
+          <li>UNEP-WCMC.</li>
+          <li>CIA World Factbook.</li>
+          <li>"The Herb Book" and its counterpart, "The Tree Book".</li>
+          <li>"Quyền năng của hoa" ("The power of flowers").</li>
+          <li>Wikipedia.</li>
+        </ul>
+        <p>That's quite a lot, isn't it?</p>
+
+        <h3>So... How do you make the music and drawings?</h3>
+        <p>I draw the flowers myself in Sketchbook (It's a free to download app!), then I go into EGANE (Music synthesizer website, yes, you can also use it!), play around with the settings until I'm satisfied. After that, I record it and put it in the popups!</p>
+
+        <h3>What about the pictures?</h3>
+        <p>I source them online by searching for uncopyrighted pictures!</p>
+      </div>
+    </div>
+  </div>
+
+<!-- CENTERED POPUP MODAL -->
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+  <div class="info-modal">
+    <div class="modal-header">
+      <div>
+        <h2 id="countryName">Country</h2>
+        <div class="modal-subtitle" id="countrySubtitle"></div>
+      </div>
+      <div class="modal-actions">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="bi">Song ngữ</button>
+          <button class="lang-btn" data-lang="vi">VI</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="ctrl-btn btn-soft" id="closeModalBtn">✕ Đóng</button>
+      </div>
+    </div>
+    <div class="modal-body" id="countryInfo"></div>
+  </div>
+</div>
+
+<script>
+/* CHUYỂN ĐỔI 3 TAB TRANG */
+function switchTab(tabName) {
+  document.querySelectorAll(".tab-view").forEach(v => v.classList.remove("active"));
+  document.querySelectorAll(".nav-tab").forEach(b => b.classList.remove("active"));
+  document.getElementById("tab-" + tabName).classList.add("active");
+  document.getElementById("tab-btn-" + tabName).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (tabName === "home") {
+    window.dispatchEvent(new Event("resize"));
+  }
+}
+
+(function () {
+"use strict";
+
+/* =========================================
+   1. DANH SÁCH 28 QUỐC GIA & BẢNG ÁNH XẠ MÃ CHUẨN
+========================================= */
+const COUNTRIES = [
+  ["VNM","Vietnam","Việt Nam"],
+  ["JPN","Japan","Nhật Bản"],
+  ["KOR","South Korea","Hàn Quốc"],
+  ["CHN","China","Trung Quốc"],
+  ["IND","India","Ấn Độ"],
+  ["THA","Thailand","Thái Lan"],
+  ["SGP","Singapore","Singapore"],
+  ["SAU","Saudi Arabia","Ả Rập Xê Út"],
+  ["FRA","France","Pháp"],
+  ["DEU","Germany","Đức"],
+  ["ITA","Italy","Ý"],
+  ["ESP","Spain","Tây Ban Nha"],
+  ["GBR","United Kingdom","Vương quốc Anh"],
+  ["RUS","Russia","Nga"],
+  ["NLD","Netherlands","Hà Lan"],
+  ["USA","United States of America","Hoa Kỳ"],
+  ["CAN","Canada","Canada"],
+  ["MEX","Mexico","Mexico"],
+  ["BRA","Brazil","Brazil"],
+  ["ARG","Argentina","Argentina"],
+  ["CHL","Chile","Chile"],
+  ["EGY","Egypt","Ai Cập"],
+  ["ZAF","South Africa","Nam Phi"],
+  ["KEN","Kenya","Kenya"],
+  ["ETH","Ethiopia","Ethiopia"],
+  ["MDG","Madagascar","Madagascar"],
+  ["AUS","Australia","Úc"],
+  ["NZL","New Zealand","New Zealand"]
+];
+
+const COUNTRY_MAP = {};
+const CODE_ALIAS = {};
+COUNTRIES.forEach(c => {
+  COUNTRY_MAP[c[0]] = { code: c[0], en: c[1], vi: c[2] };
+  CODE_ALIAS[c[0].toLowerCase()] = c[0];
+  CODE_ALIAS[c[1].toLowerCase()] = c[0];
+  CODE_ALIAS[c[2].toLowerCase()] = c[0];
+});
+
+Object.assign(CODE_ALIAS, {
+  "vn": "VNM", "viet nam": "VNM",
+  "jp": "JPN",
+  "kr": "KOR", "republic of korea": "KOR",
+  "cn": "CHN",
+  "in": "IND",
+  "th": "THA",
+  "sg": "SGP",
+  "sa": "SAU",
+  "fr": "FRA",
+  "de": "DEU",
+  "it": "ITA",
+  "es": "ESP",
+  "uk": "GBR", "gb": "GBR", "england": "GBR",
+  "ru": "RUS", "russian federation": "RUS",
+  "nl": "NLD", "the netherlands": "NLD", "holland": "NLD",
+  "us": "USA", "united states": "USA",
+  "ca": "CAN",
+  "mx": "MEX",
+  "br": "BRA",
+  "ar": "ARG",
+  "cl": "CHL",
+  "eg": "EGY",
+  "za": "ZAF",
+  "ke": "KEN",
+  "et": "ETH",
+  "mg": "MDG",
+  "au": "AUS",
+  "nz": "NZL"
+});
+
+function resolveStandardCode(rawVal) {
+  const clean = String(rawVal || "").trim().toLowerCase();
+  if (!clean) return "";
+  if (CODE_ALIAS[clean]) return CODE_ALIAS[clean];
+  const upper = clean.toUpperCase();
+  if (COUNTRY_MAP[upper]) return upper;
+  return "";
+}
+
+const CENTERS = {
+  VNM:[16,106], JPN:[36,138], KOR:[36,128], CHN:[35,103],
+  IND:[22,79], THA:[15,101], SGP:[1.35,103.8], SAU:[24,45],
+  FRA:[46,2], DEU:[51,10], ITA:[42,12], ESP:[40,-3],
+  GBR:[54,-2], RUS:[60,90], NLD:[52,5], USA:[39,-98],
+  CAN:[57,-106], MEX:[23,-102], BRA:[-10,-52], ARG:[-38,-64],
+  CHL:[-30,-71], EGY:[26,30], ZAF:[-29,24], KEN:[0,38],
+  ETH:[9,40], MDG:[-19,47], AUS:[-25,134], NZL:[-41,174]
+};
+
+const GEO_URL =
+  "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson";
+
+const DATA_URL =
+  "https://script.google.com/macros/s/AKfycbySccDIJ8D9Tk9K9BYFlQQmnFXHIrRW-EvZOeX8tLWI_q9MtAZierwkcA4g6t_CRPshwA/exec";
+
+/* =========================================
+   2. BIẾN TRẠNG THÁI
+========================================= */
+let globe = null;
+let targetFeatures = [];
+let countryData = [];
+let flowerData = [];
+let natureData = [];
+let natureMap = {};
+let rotating = true;
+let activeLayer = "default";
+let currentCode = "";
+let currentLang = "bi";
+
+const $ = id => document.getElementById(id);
+
+/* =========================================
+   3. TIỆN ÍCH CHUẨN HÓA DỮ LIỆU, DRIVE & AUDIO
+========================================= */
+function escapeHTML(val) {
+  return String(val == null ? "" : val)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+function normalizeCode(val) {
+  return String(val || "").trim().toUpperCase();
+}
+
+function pickField(obj, keys) {
+  if (!obj || typeof obj !== "object") return "";
+  for (let i = 0; i < keys.length; i++) {
+    const k = keys[i];
+    if (obj[k] !== undefined && obj[k] !== null && String(obj[k]).trim() !== "") {
+      return obj[k];
+    }
+  }
+  const normalizedMap = {};
+  Object.keys(obj).forEach(k => {
+    normalizedMap[k.toLowerCase().replace(/[^a-z0-9]/g, "")] = obj[k];
+  });
+  for (let i = 0; i < keys.length; i++) {
+    const nk = keys[i].toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (normalizedMap[nk] !== undefined && normalizedMap[nk] !== null && String(normalizedMap[nk]).trim() !== "") {
+      return normalizedMap[nk];
+    }
+  }
+  return "";
+}
+
+function toNum(val) {
+  if (val === null || val === undefined || val === "") return null;
+  if (typeof val === "number") return Number.isFinite(val) ? val : null;
+  const cleaned = String(val).replace(/,/g, "").replace(/[^\d.-]/g, "");
+  if (!cleaned) return null;
+  const n = Number(cleaned);
+  return Number.isFinite(n) ? n : null;
+}
+
+function extractDriveId(url) {
+  if (!url) return "";
+  const str = String(url).trim();
+  const m1 = str.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (m1) return m1[1];
+  const m2 = str.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (m2) return m2[1];
+  return "";
+}
+
+function extractYouTubeId(url) {
+  if (!url) return "";
+  const str = String(url).trim();
+  const m = str.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return m ? m[1] : "";
+}
+
+function resolveImageUrls(rawUrl, convertedUrl) {
+  const id = extractDriveId(rawUrl) || extractDriveId(convertedUrl);
+  if (id) {
+    return {
+      primary: "https://drive.google.com/thumbnail?id=" + id + "&sz=w1200",
+      fallback: "https://lh3.googleusercontent.com/d/" + id + "=w1200"
+    };
+  }
+  const clean = convertedUrl || rawUrl || "";
+  return { primary: clean, fallback: "" };
+}
+
+function renderAudioPlayer(rawUrl, title) {
+  const url = String(rawUrl || "").trim();
+  const safeTitle = escapeHTML(title || "Giai điệu đặc trưng");
+
+  if (!url) {
+    return `
+      <div class="audio-section-wrap">
+        <div class="audio-card">
+          <div class="audio-header"><span>🎵 ${safeTitle}</span></div>
+        </div>
+      </div>
+    `;
+  }
+
+  const driveId = extractDriveId(url);
+  const ytId = extractYouTubeId(url);
+
+  let playerHtml = "";
+  if (driveId) {
+    const previewUrl = "https://drive.google.com/file/d/" + driveId + "/preview";
+    playerHtml = `
+      <iframe
+        class="embed-audio-frame"
+        src="${escapeHTML(previewUrl)}"
+        allow="autoplay"
+        loading="lazy"
+        title="${safeTitle}">
+      </iframe>
+    `;
+  } else if (ytId) {
+    const ytEmbed = "https://www.youtube.com/embed/" + ytId;
+    playerHtml = `
+      <iframe
+        class="embed-audio-frame"
+        style="height:160px;"
+        src="${escapeHTML(ytEmbed)}"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+        title="${safeTitle}">
+      </iframe>
+    `;
+  } else {
+    playerHtml = `<audio controls preload="none" src="${escapeHTML(url)}"></audio>`;
+  }
+
+  return `
+    <div class="audio-section-wrap">
+      <div class="audio-card">
+        <div class="audio-header">
+          <span>🎵 ${safeTitle}</span>
+          <a class="audio-ext-link" href="${escapeHTML(url)}" target="_blank" rel="noopener">↗ Mở liên kết gốc</a>
+        </div>
+        ${playerHtml}
+      </div>
+    </div>
+  `;
+}
+
+function formatNumber(val, suffix) {
+  const num = toNum(val);
+  if (num !== null) {
+    return num.toLocaleString("en-US") + (suffix ? " " + suffix : "");
+  }
+  if (val === null || val === undefined || val === "") return "";
+  return String(val) + (suffix ? " " + suffix : "");
+}
+
+/* =========================================
+   4. CẤU HÌNH BẢNG MÀU RIÊNG CHO TỪNG MỤC SINH HỌC
+========================================= */
+const LAYER_CONFIG = {
+  default: {
+    title: "28 Quốc gia tiêu biểu",
+    unit: "Mặc định",
+    desc: "",
+    barGradient: "#87ab82",
+    stops: [[135, 171, 130]]
+  },
+  soilMoisture: {
+    title: "Độ ẩm đất trung bình",
+    unit: "m³/m³",
+    desc: "Thang màu Xanh ngọc: Chuyển từ xanh ngọc nhạt ở vùng đất khô hạn sang xanh ngọc đậm ở vùng giàu độ ẩm.",
+    barGradient: "linear-gradient(90deg, #cbf5ec 0%, #3bc4ab 50%, #095c4e 100%)",
+    stops: [
+      [203, 245, 236],
+      [59, 196, 171],
+      [9, 92, 78]
+    ]
+  },
+  annualRainfall: {
+    title: "Lượng mưa trung bình năm",
+    unit: "mm/năm",
+    desc: "Thang màu Xanh dương: Từ xanh da trời nhạt ở vùng ít mưa chuyển dần sang xanh dương đậm ở vùng mưa lớn.",
+    barGradient: "linear-gradient(90deg, #dbeeff 0%, #2b8be6 50%, #083b8a 100%)",
+    stops: [
+      [219, 238, 255],
+      [43, 139, 230],
+      [8, 59, 138]
+    ]
+  },
+  meanTemperature: {
+    title: "Nhiệt độ trung bình năm",
+    unit: "°C",
+    desc: "Thang nhiệt 4 cấp: Chuyển sắc từ Xanh nõn chuối (mát/lạnh) → Vàng nhạt (ôn hòa) → Cam (ấm) → Đỏ (nóng nhiệt đới).",
+    barGradient: "linear-gradient(90deg, #b7e352 0%, #fff176 35%, #ff9800 70%, #d32f2f 100%)",
+    stops: [
+      [183, 227, 82],
+      [255, 241, 118],
+      [255, 152, 0],
+      [211, 47, 47]
+    ]
+  },
+  area: {
+    title: "Diện tích lãnh thổ",
+    unit: "km²",
+    desc: "Thang màu Tím: Quốc gia diện tích nhỏ mang sắc tím nhạt, quốc gia rộng lớn chuyển dần sang tím đậm.",
+    barGradient: "linear-gradient(90deg, #ede4fa 0%, #9c6ade 50%, #4b1d8c 100%)",
+    stops: [
+      [237, 228, 250],
+      [156, 106, 222],
+      [75, 29, 140]
+    ]
+  }
+};
+
+function interpolateColor(stops, t) {
+  if (!stops || !stops.length) return "#87ab82";
+  if (stops.length === 1) {
+    return `rgb(${stops[0][0]}, ${stops[0][1]}, ${stops[0][2]})`;
+  }
+  const clamped = Math.max(0, Math.min(1, t));
+  const segments = stops.length - 1;
+  const scaled = clamped * segments;
+  const idx = Math.min(Math.floor(scaled), segments - 1);
+  const localT = scaled - idx;
+
+  const c1 = stops[idx];
+  const c2 = stops[idx + 1];
+  const r = Math.round(c1[0] + (c2[0] - c1[0]) * localT);
+  const g = Math.round(c1[1] + (c2[1] - c1[1]) * localT);
+  const b = Math.round(c1[2] + (c2[2] - c1[2]) * localT);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+function getLayerStats(layerKey) {
+  if (layerKey === "default") return null;
+  const entries = [];
+  Object.keys(natureMap).forEach(code => {
+    const val = toNum(natureMap[code][layerKey]);
+    if (val !== null && COUNTRY_MAP[code]) {
+      entries.push({
+        code,
+        name: natureMap[code].countryNameVi || COUNTRY_MAP[code].vi,
+        val
+      });
+    }
+  });
+  if (!entries.length) return null;
+  entries.sort((a, b) => a.val - b.val);
+  return {
+    min: entries[0].val,
+    max: entries[entries.length - 1].val,
+    lowest: entries[0],
+    highest: entries[entries.length - 1]
+  };
+}
+
+function getPolygonFillColor(feature) {
+  const code = getCountryCode(feature);
+  if (!COUNTRY_MAP[code] || activeLayer === "default") {
+    return "#87ab82";
+  }
+
+  const stats = getLayerStats(activeLayer);
+  const nature = natureMap[code];
+  const val = nature ? toNum(nature[activeLayer]) : null;
+
+  if (!stats || val === null) {
+    return "#87ab82";
+  }
+
+  let t = stats.max > stats.min ? (val - stats.min) / (stats.max - stats.min) : 0.5;
+  if (activeLayer === "area") {
+    t = Math.sqrt(Math.max(0, t));
+  }
+
+  return interpolateColor(LAYER_CONFIG[activeLayer].stops, t);
+}
+
+function getPolygonTooltip(feature) {
+  const code = getCountryCode(feature);
+  const country = COUNTRY_MAP[code];
+  if (!country) return "";
+
+  const nature = natureMap[code] || {};
+  const nameVi = nature.countryNameVi || country.vi;
+  const nameEn = nature.countryNameEn || country.en;
+
+  let extra = "";
+  if (activeLayer !== "default") {
+    const cfg = LAYER_CONFIG[activeLayer];
+    const val = nature[activeLayer];
+    const formatted = val !== null && val !== undefined && val !== "" ? formatNumber(val, cfg.unit) : "Chưa có dữ liệu";
+    extra = `<div style="margin-top:3px; color:#F5D5C8;">${escapeHTML(cfg.title)}: <strong>${escapeHTML(formatted)}</strong></div>`;
+  } else {
+    extra = `<div style="margin-top:2px; font-size:11px; color:#F5D5C8;">Nhấn để xem chi tiết</div>`;
+  }
+
+  return `
+    <div class="globe-tooltip">
+      <strong>${escapeHTML(nameVi)}</strong> (${escapeHTML(nameEn)})
+      ${extra}
+    </div>
+  `;
+}
+
+function updateLegendPanel() {
+  const panel = $("legendPanel");
+
+  if (activeLayer === "default") {
+    panel.classList.add("hidden");
+    return;
+  }
+
+  panel.classList.remove("hidden");
+  const cfg = LAYER_CONFIG[activeLayer];
+  $("legendTitle").textContent = cfg.title;
+  $("legendUnit").textContent = cfg.unit;
+  $("legendDesc").textContent = cfg.desc;
+  $("legendBar").style.background = cfg.barGradient;
+
+  const extremesEl = $("legendExtremes");
+  const stats = getLayerStats(activeLayer);
+
+  if (!stats) {
+    $("legendMin").textContent = "Thấp";
+    $("legendMax").textContent = "Cao";
+    extremesEl.innerHTML = `<div style="color:#F5D5C8;">Đang đồng bộ số liệu từ tab Naturedata...</div>`;
+    return;
+  }
+
+  $("legendMin").textContent = formatNumber(stats.min, "");
+  $("legendMax").textContent = formatNumber(stats.max, cfg.unit);
+
+  extremesEl.innerHTML = `
+    <div><span>🔺 Cao nhất:</span> <strong>${escapeHTML(stats.highest.name)} (${escapeHTML(formatNumber(stats.highest.val, cfg.unit))})</strong></div>
+    <div><span>🔻 Thấp nhất:</span> <strong>${escapeHTML(stats.lowest.name)} (${escapeHTML(formatNumber(stats.lowest.val, cfg.unit))})</strong></div>
+  `;
+}
+
+function refreshGlobePolygons() {
+  if (!globe || !targetFeatures.length) return;
+  globe
+    .polygonCapColor(f => getPolygonFillColor(f))
+    .polygonsData(targetFeatures);
+}
+
+function applyMapLayer(layerKey) {
+  activeLayer = layerKey;
+  document.querySelectorAll(".layer-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("data-layer") === layerKey);
+  });
+  updateLegendPanel();
+  refreshGlobePolygons();
+}
+
+/* =========================================
+   5. TẢI THƯ VIỆN & CHUẨN HÓA DỮ LIỆU GOOGLE SHEETS
+========================================= */
+function loadScript(url) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = url;
+    s.async = true;
+    s.onload = resolve;
+    s.onerror = () => reject(new Error("Không tải được thư viện 3D."));
+    document.head.appendChild(s);
+  });
+}
+
+async function loadGlobeLibrary() {
+  if (window.Globe) return;
+  try {
+    await loadScript("https://cdn.jsdelivr.net/npm/globe.gl@2.41.12/dist/globe.gl.min.js");
+  } catch (e) {
+    await loadScript("https://unpkg.com/globe.gl/dist/globe.gl.min.js");
+  }
+  if (!window.Globe) throw new Error("Trình duyệt không khởi tạo được Globe.gl.");
+}
+
+function getCountryCode(feature) {
+  if (!feature) return "";
+  if (feature.__stdCode) return feature.__stdCode;
+  const p = feature.properties || {};
+  const candidates = [p.ADM0_A3, p.ISO_A3_EH, p.ISO_A3, p.SOV_A3, p.GU_A3];
+  for (const val of candidates) {
+    const code = resolveStandardCode(val);
+    if (code) {
+      feature.__stdCode = code;
+      return code;
+    }
+  }
+  const name = String(p.ADMIN || p.NAME || p.NAME_EN || "").trim();
+  const code = resolveStandardCode(name);
+  feature.__stdCode = code;
+  return code;
+}
+
+function normalizeNatureRecord(raw) {
+  const rawCode = pickField(raw, ["countryCode", "code", "Country Code"]);
+  const rawNameEn = pickField(raw, ["countryNameEn", "countryName", "Country Name_EN", "Country Name"]);
+  const rawNameVi = pickField(raw, ["countryNameVi", "countryVi", "Country_VI"]);
+  const stdCode = resolveStandardCode(rawCode) || resolveStandardCode(rawNameEn) || resolveStandardCode(rawNameVi);
+
+  return {
+    countryCode: stdCode,
+    countryNameEn: rawNameEn,
+    countryNameVi: rawNameVi,
+    continentEn: pickField(raw, ["continentEn", "continent", "Continent_EN"]),
+    continentVi: pickField(raw, ["continentVi", "Continent_VI"]),
+    latitude: toNum(pickField(raw, ["latitude", "Latitude"])),
+    longitude: toNum(pickField(raw, ["longitude", "Longitude"])),
+    area: toNum(pickField(raw, ["area", "Area"])),
+    annualRainfall: toNum(pickField(raw, ["annualRainfall", "rainfall", "Annual Rainfall"])),
+    soilMoisture: toNum(pickField(raw, ["soilMoisture", "Soil Moisture"])),
+    meanTemperature: toNum(pickField(raw, ["meanTemperature", "temperature", "Mean Temperature"])),
+    soilTypeEn: pickField(raw, ["soilTypeEn", "soilType", "Soil Type_EN"]),
+    soilTypeVi: pickField(raw, ["soilTypeVi", "Soil Type_VI"]),
+    ecosystemEn: pickField(raw, ["ecosystemEn", "ecosystem", "Ecosystem_EN"]),
+    ecosystemVi: pickField(raw, ["ecosystemVi", "Ecosystem_VI"]),
+    vegetationEn: pickField(raw, ["vegetationEn", "vegetation", "Vegetation_EN"]),
+    vegetationVi: pickField(raw, ["vegetationVi", "Vegetation_VI"]),
+    biodiversityEn: pickField(raw, ["biodiversityEn", "biodiversity", "Biodiversity_EN"]),
+    biodiversityVi: pickField(raw, ["biodiversityVi", "Biodiversity_VI"])
+  };
+}
+
+function normalizeCountryRecord(raw) {
+  const rawCode = pickField(raw, ["code", "countryCode", "Code", "Country Code"]);
+  const rawName = pickField(raw, ["name", "countryName", "Countries", "Country"]);
+  const stdCode = resolveStandardCode(rawCode) || resolveStandardCode(rawName);
+
+  return {
+    code: stdCode,
+    name: rawName,
+    title: pickField(raw, ["title", "nationalFlower", "National / Symbol Flower", "National Flower"]),
+    scientificName: pickField(raw, ["scientificName", "Scientific Name"]),
+    introVi: pickField(raw, ["introVi", "INTRO_VI", "Introduction VI"]),
+    introEn: pickField(raw, ["introEn", "INTRO_EN", "Introduction EN"]),
+    musicTitle: pickField(raw, ["musicTitle", "MUSIC_TITLE", "Music Title"]),
+    musicUrl: pickField(raw, ["musicUrl", "MUSIC_URL", "Music URL", "linkUrl"]),
+    pictureUrl: pickField(raw, ["pictureUrl", "PICTURE", "Picture"]),
+    pictureDriveUrl: pickField(raw, ["pictureDriveUrl", "PICTURE", "Picture"]),
+    drawingUrl: pickField(raw, ["drawingUrl", "DRAWING", "Drawing"]),
+    drawingDriveUrl: pickField(raw, ["drawingDriveUrl", "DRAWING", "Drawing"])
+  };
+}
+
+function normalizeFlowerRecord(raw) {
+  const rawCode = pickField(raw, ["countryCode", "code", "Country Code"]);
+  const stdCode = resolveStandardCode(rawCode);
+
+  return {
+    countryCode: stdCode,
+    nameVi: pickField(raw, ["nameVi", "Flower Name VI"]),
+    nameEn: pickField(raw, ["nameEn", "Flower Name EN"]),
+    scientificName: pickField(raw, ["scientificName", "Scientific Name"]),
+    typeEn: pickField(raw, ["typeEn", "Flower Type_EN"]),
+    typeVi: pickField(raw, ["typeVi", "Flower Type_VI"]),
+    pictureUrl: pickField(raw, ["pictureUrl", "Picture URL"]),
+    originalPictureUrl: pickField(raw, ["originalPictureUrl", "Picture URL"])
+  };
+}
+
+function applyParsedResult(res) {
+  if (!res || typeof res !== "object") {
+    throw new Error("Dữ liệu trả về từ Apps Script không đúng định dạng JSON.");
+  }
+  if (res.success === false) {
+    throw new Error(res.error || res.message || "Apps Script báo lỗi.");
+  }
+
+  const rawCountries = Array.isArray(res.countries) ? res.countries : (Array.isArray(res) ? res : []);
+  const rawFlowers = Array.isArray(res.flowers) ? res.flowers : [];
+  const rawNature = Array.isArray(res.natureData) ? res.natureData : (Array.isArray(res.nature) ? res.nature : []);
+
+  countryData = rawCountries.map(normalizeCountryRecord).filter(c => c.code);
+  flowerData = rawFlowers.map(normalizeFlowerRecord).filter(f => f.countryCode);
+  natureData = rawNature.map(normalizeNatureRecord).filter(n => n.countryCode);
+
+  natureMap = {};
+  natureData.forEach(item => {
+    natureMap[item.countryCode] = item;
+  });
+}
+
+function loadViaJsonp() {
+  return new Promise((resolve, reject) => {
+    const cb = "earthBotanic_" + Math.random().toString(36).slice(2);
+    const script = document.createElement("script");
+
+    const timer = setTimeout(() => {
+      delete window[cb];
+      script.remove();
+      reject(new Error("Hết thời gian chờ phản hồi từ Apps Script."));
+    }, 15000);
+
+    window[cb] = res => {
+      clearTimeout(timer);
+      delete window[cb];
+      script.remove();
+      try {
+        applyParsedResult(res);
+        resolve();
+      } catch (err) {
+        reject(err);
+      }
+    };
+
+    script.src = DATA_URL + (DATA_URL.includes("?") ? "&" : "?") + "callback=" + cb + "&_=" + Date.now();
+    script.onerror = () => {
+      clearTimeout(timer);
+      delete window[cb];
+      script.remove();
+      reject(new Error("Không tải được script từ Google Apps Script."));
+    };
+    document.head.appendChild(script);
+  });
+}
+
+async function loadSheetData() {
+  const statusEl = $("statusBar");
+  statusEl.classList.remove("error");
+  statusEl.textContent = "⏳ Đang đồng bộ dữ liệu từ Google Sheets...";
+
+  try {
+    const response = await fetch(DATA_URL + (DATA_URL.includes("?") ? "&" : "?") + "_=" + Date.now(), {
+      method: "GET",
+      redirect: "follow"
+    });
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    const json = await response.json();
+    applyParsedResult(json);
+  } catch (fetchErr) {
+    await loadViaJsonp();
+  }
+
+  statusEl.textContent =
+    `🌸 Đã đồng bộ: ${countryData.length} quốc gia • ${flowerData.length} loài hoa • ${natureData.length} hồ sơ tự nhiên`;
+
+  updateLegendPanel();
+  refreshGlobePolygons();
+  if (currentCode) {
+    showCountryModal(currentCode);
+  }
+}
+
+/* =========================================
+   6. HIỂN THỊ POPUP HỒ SƠ CHÍNH GIỮA MÀN HÌNH
+========================================= */
+function pickText(vi, en) {
+  if (currentLang === "vi") return vi || en || "";
+  if (currentLang === "en") return en || vi || "";
+  if (vi && en && vi !== en) return vi + " / " + en;
+  return vi || en || "";
+}
+
+function renderImgTag(rawUrl, convertedUrl, altText, cssClass) {
+  const { primary, fallback } = resolveImageUrls(rawUrl, convertedUrl);
+  if (!primary) return "";
+  const onErr = fallback
+    ? `onerror="if(!this.dataset.tried){this.dataset.tried='1';this.src='${escapeHTML(fallback)}';}else{this.closest('.media-card,a')?.remove();}"`
+    : `onerror="this.style.display='none'"`;
+  return `<img class="${cssClass || ""}" src="${escapeHTML(primary)}" alt="${escapeHTML(altText)}" loading="lazy" ${onErr}>`;
+}
+
+function showCountryModal(code) {
+  const country = COUNTRY_MAP[code];
+  if (!country) return;
+
+  currentCode = code;
+  $("countrySelect").value = code;
+
+  const data = countryData.find(d => d.code === code) || {};
+  const flowers = flowerData.filter(d => d.countryCode === code);
+  const nature = natureMap[code] || {};
+
+  const nameVi = nature.countryNameVi || country.vi;
+  const nameEn = nature.countryNameEn || data.name || country.en;
+  const continent = pickText(nature.continentVi, nature.continentEn);
+
+  $("countryName").textContent = currentLang === "en" ? nameEn : nameVi;
+  $("countrySubtitle").textContent =
+    (currentLang === "en" ? nameVi : nameEn) +
+    " • " + code +
+    (continent ? " • " + continent : "");
+
+  let html = "";
+
+  /* A. QUỐC HOA */
+  const nationalFlower = data.title || "Chưa cập nhật / Not updated";
+  html += `
+    <div class="hero-flower-card">
+      <div class="label">🌸 ${currentLang === "en" ? "National / Symbol Flower" : "Quốc hoa / Hoa biểu tượng"}</div>
+      <div class="flower-title">${escapeHTML(nationalFlower)}</div>
+      ${data.scientificName ? `<div class="sci-name">${escapeHTML(data.scientificName)}</div>` : ""}
+    </div>
+  `;
+
+  /* B. GIỚI THIỆU */
+  if ((currentLang === "bi" || currentLang === "vi") && data.introVi) {
+    html += `<div class="section-title">📖 Giới thiệu</div><p>${escapeHTML(data.introVi)}</p>`;
+  }
+  if ((currentLang === "bi" || currentLang === "en") && data.introEn) {
+    html += `<div class="section-title">📖 Introduction</div><p>${escapeHTML(data.introEn)}</p>`;
+  }
+
+  /* C. HÌNH ẢNH & TRANH VẼ */
+  if (data.pictureUrl || data.pictureDriveUrl || data.drawingUrl || data.drawingDriveUrl) {
+    html += `<div class="section-title">🖼️ ${currentLang === "en" ? "Country Gallery & Artwork" : "Hình ảnh quốc gia & Tranh vẽ"}</div>`;
+    html += `<div class="media-grid">`;
+
+    if (data.pictureUrl || data.pictureDriveUrl) {
+      html += `
+        <div class="media-card">
+          <div class="media-square-wrap">
+            ${renderImgTag(data.pictureDriveUrl, data.pictureUrl, nationalFlower, "photo-cover")}
+          </div>
+          <div class="caption">${currentLang === "en" ? "National Flower Photo" : "Ảnh thực tế"}</div>
+        </div>
+      `;
+    }
+
+    if (data.drawingUrl || data.drawingDriveUrl) {
+      html += `
+        <div class="media-card">
+          <div class="media-square-wrap">
+            ${renderImgTag(data.drawingDriveUrl, data.drawingUrl, "Botanical Drawing", "drawing-contain")}
+          </div>
+          <div class="caption">${currentLang === "en" ? "Botanical Illustration" : "Tranh vẽ minh họa"}</div>
+        </div>
+      `;
+    }
+    html += `</div>`;
+  }
+
+  /* D. AUDIO PLAYER NHẠC */
+  if (data.musicUrl || data.musicTitle) {
+    html += `<div class="section-title centered">🎶 ${currentLang === "en" ? "Soundtrack" : "Âm nhạc đặc trưng"}</div>`;
+    html += renderAudioPlayer(data.musicUrl, data.musicTitle);
+  }
+
+  /* E. CÁC LOÀI HOA KHÁC */
+  if (flowers.length) {
+    html += `<div class="section-title">🌼 ${currentLang === "en" ? "Characteristic Flowers" : "Các loài hoa tiêu biểu khác"}</div>`;
+    html += `<div class="flower-grid">`;
+
+    flowers.forEach(f => {
+      const fName = pickText(f.nameVi, f.nameEn) || "Flower";
+      const fType = pickText(f.typeVi, f.typeEn);
+      const isNative = normalizeCode(f.typeEn) === "NATIVE";
+
+      html += `
+        <div class="flower-card">
+          <div class="flower-card-top">
+            <div>
+              <strong style="color:var(--moss-dark); font-size:14.5px;">${escapeHTML(fName)}</strong>
+              ${f.scientificName ? `<div style="font-style:italic; color:var(--moss); font-size:12px; margin-top:2px;">${escapeHTML(f.scientificName)}</div>` : ""}
+            </div>
+            ${fType ? `<span class="badge ${isNative ? "badge-native" : "badge-common"}">${escapeHTML(fType)}</span>` : ""}
+          </div>
+          ${(f.pictureUrl || f.originalPictureUrl) ? renderImgTag(f.originalPictureUrl, f.pictureUrl, fName, "") : ""}
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+  }
+
+  /* F. DỮ LIỆU TỰ NHIÊN & SINH THÁI */
+  const hasStats =
+    nature.area !== null && nature.area !== undefined ||
+    nature.annualRainfall !== null && nature.annualRainfall !== undefined ||
+    nature.soilMoisture !== null && nature.soilMoisture !== undefined ||
+    nature.meanTemperature !== null && nature.meanTemperature !== undefined;
+
+  const soilText = pickText(nature.soilTypeVi, nature.soilTypeEn);
+  const ecoText = pickText(nature.ecosystemVi, nature.ecosystemEn);
+  const vegText = pickText(nature.vegetationVi, nature.vegetationEn);
+  const bioText = pickText(nature.biodiversityVi, nature.biodiversityEn);
+
+  if (hasStats || soilText || ecoText || vegText || bioText) {
+    html += `<div class="section-title">🌱 ${currentLang === "en" ? "Nature & Ecology" : "Điều kiện tự nhiên & Sinh thái"}</div>`;
+
+    if (hasStats) {
+      html += `<div class="nature-grid">`;
+      if (nature.area !== null && nature.area !== undefined) {
+        html += `<div class="stat-box"><div class="stat-label">${currentLang === "en" ? "Area" : "Diện tích"}</div><div class="stat-value">${escapeHTML(formatNumber(nature.area, "km²"))}</div></div>`;
+      }
+      if (nature.annualRainfall !== null && nature.annualRainfall !== undefined) {
+        html += `<div class="stat-box"><div class="stat-label">${currentLang === "en" ? "Annual Rainfall" : "Lượng mưa TB"}</div><div class="stat-value">${escapeHTML(formatNumber(nature.annualRainfall, "mm"))}</div></div>`;
+      }
+      if (nature.meanTemperature !== null && nature.meanTemperature !== undefined) {
+        html += `<div class="stat-box"><div class="stat-label">${currentLang === "en" ? "Mean Temperature" : "Nhiệt độ TB"}</div><div class="stat-value">${escapeHTML(formatNumber(nature.meanTemperature, "°C"))}</div></div>`;
+      }
+      if (nature.soilMoisture !== null && nature.soilMoisture !== undefined) {
+        html += `<div class="stat-box"><div class="stat-label">${currentLang === "en" ? "Soil Moisture" : "Độ ẩm đất"}</div><div class="stat-value">${escapeHTML(formatNumber(nature.soilMoisture, "m³/m³"))}</div></div>`;
+      }
+      html += `</div>`;
+    }
+
+    if (soilText || ecoText || vegText || bioText) {
+      html += `<div class="nature-detail-list">`;
+      if (soilText) html += `<p><strong>${currentLang === "en" ? "Soil Type:" : "Loại đất chủ yếu:"}</strong> ${escapeHTML(soilText)}</p>`;
+      if (ecoText) html += `<p><strong>${currentLang === "en" ? "Ecosystem:" : "Hệ sinh thái:"}</strong> ${escapeHTML(ecoText)}</p>`;
+      if (vegText) html += `<p><strong>${currentLang === "en" ? "Vegetation:" : "Thảm thực vật:"}</strong> ${escapeHTML(vegText)}</p>`;
+      if (bioText) html += `<p><strong>${currentLang === "en" ? "Biodiversity:" : "Đa dạng sinh học:"}</strong> ${escapeHTML(bioText)}</p>`;
+      html += `</div>`;
+    }
+  }
+
+  $("countryInfo").innerHTML = html;
+  $("modalBackdrop").classList.add("active");
+}
+
+function closeModal() {
+  $("modalBackdrop").classList.remove("active");
+}
+
+/* =========================================
+   7. KHỞI TẠO QUẢ ĐỊA CẦU 3D MƯỢT MÀ
+========================================= */
+function createGlobe(features) {
+  const container = $("globeViz");
+
+  targetFeatures = (features || []).filter(f => Boolean(COUNTRY_MAP[getCountryCode(f)]));
+
+  globe = window.Globe({
+    animateIn: false,
+    rendererConfig: {
+      antialias: true,
+      alpha: true,
+      powerPreference: "high-performance"
+    }
+  })(container)
+    .width(container.clientWidth)
+    .height(container.clientHeight)
+    .backgroundColor("rgba(0,0,0,0)")
+    .backgroundImageUrl("https://unpkg.com/three-globe/example/img/night-sky.png")
+    .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+    .showAtmosphere(true)
+    .atmosphereColor("#68b5ff")
+    .atmosphereAltitude(0.16)
+    .showGraticules(false)
+    .polygonsData(targetFeatures)
+    .polygonCapColor(f => getPolygonFillColor(f))
+    .polygonSideColor(() => "rgba(255, 255, 255, 0.14)")
+    .polygonStrokeColor(() => "#1b3322")
+    .polygonAltitude(0.012)
+    .polygonLabel(f => getPolygonTooltip(f))
+    .polygonsTransitionDuration(0)
+    .onPolygonClick(feature => {
+      const code = getCountryCode(feature);
+      if (COUNTRY_MAP[code]) {
+        goToCountry(code);
+      }
+    });
+
+  const renderer = globe.renderer();
+  if (renderer) {
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  }
+
+  const controls = globe.controls();
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.38;
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.rotateSpeed = 0.75;
+  controls.zoomSpeed = 0.85;
+  controls.minDistance = 140;
+  controls.maxDistance = 520;
+
+  globe.pointOfView({ lat: 15, lng: 15, altitude: 2.35 });
+
+  let resizeTimer = null;
+  function resizeGlobe() {
+    if (!globe) return;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      if (w > 0 && h > 0) {
+        globe.width(w);
+        globe.height(h);
+      }
+    }, 80);
+  }
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(resizeGlobe).observe(container);
+  } else {
+    window.addEventListener("resize", resizeGlobe);
+  }
+  setTimeout(resizeGlobe, 300);
+}
+
+function goToCountry(code) {
+  if (!globe || !CENTERS[code]) return;
+  const nature = natureMap[code] || {};
+  const lat = nature.latitude !== null && nature.latitude !== undefined ? nature.latitude : CENTERS[code][0];
+  const lng = nature.longitude !== null && nature.longitude !== undefined ? nature.longitude : CENTERS[code][1];
+
+  globe.pointOfView({ lat, lng, altitude: 1.65 }, 850);
+  showCountryModal(code);
+}
+
+function searchCountry() {
+  const q = $("searchInput").value.trim().toLowerCase();
+  if (!q) return;
+  const found = COUNTRIES.find(c =>
+    c[0].toLowerCase() === q ||
+    c[1].toLowerCase().includes(q) ||
+    c[2].toLowerCase().includes(q)
+  );
+  if (!found) {
+    $("statusBar").textContent = "Không tìm thấy quốc gia. Hãy thử tên tiếng Việt, tiếng Anh hoặc mã (VD: VNM, Japan).";
+    return;
+  }
+  goToCountry(found[0]);
+}
+
+/* =========================================
+   8. SỰ KIỆN ĐIỀU KHIỂN
+========================================= */
+function setupControls() {
+  const select = $("countrySelect");
+  COUNTRIES.forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c[0];
+    opt.textContent = `${c[2]} (${c[1]})`;
+    select.appendChild(opt);
+  });
+
+  select.addEventListener("change", e => {
+    if (e.target.value) goToCountry(e.target.value);
+  });
+
+  $("searchBtn").addEventListener("click", searchCountry);
+  $("searchInput").addEventListener("keydown", e => {
+    if (e.key === "Enter") searchCountry();
+  });
+
+  document.querySelectorAll(".layer-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      applyMapLayer(btn.getAttribute("data-layer"));
+    });
+  });
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".lang-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentLang = btn.getAttribute("data-lang");
+      if (currentCode) showCountryModal(currentCode);
+    });
+  });
+
+  $("zoomIn").addEventListener("click", () => {
+    if (!globe) return;
+    const p = globe.pointOfView();
+    globe.pointOfView({ ...p, altitude: Math.max(0.7, p.altitude * 0.8) }, 350);
+  });
+
+  $("zoomOut").addEventListener("click", () => {
+    if (!globe) return;
+    const p = globe.pointOfView();
+    globe.pointOfView({ ...p, altitude: Math.min(4.8, p.altitude * 1.25) }, 350);
+  });
+
+  $("resetBtn").addEventListener("click", () => {
+    if (!globe) return;
+    globe.pointOfView({ lat: 15, lng: 15, altitude: 2.35 }, 850);
+    closeModal();
+    $("countrySelect").value = "";
+    currentCode = "";
+  });
+
+  $("rotateBtn").addEventListener("click", () => {
+    if (!globe) return;
+    rotating = !rotating;
+    globe.controls().autoRotate = rotating;
+    $("rotateBtn").textContent = rotating ? "⏸ Tạm dừng" : "▶ Tiếp tục xoay";
+  });
+
+  $("reloadDataBtn").addEventListener("click", () => {
+    loadSheetData().catch(err => {
+      const statusEl = $("statusBar");
+      statusEl.classList.add("error");
+      statusEl.textContent = "⚠️ Lỗi đồng bộ Sheets: " + err.message;
+    });
+  });
+
+  $("closeModalBtn").addEventListener("click", closeModal);
+  $("modalBackdrop").addEventListener("click", e => {
+    if (e.target === $("modalBackdrop")) closeModal();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+  });
+}
+
+/* =========================================
+   9. KHỞI CHẠY
+========================================= */
+async function start() {
+  setupControls();
+  updateLegendPanel();
+
+  try {
+    $("loadingText").textContent = "Đang tải thư viện 3D...";
+    await loadGlobeLibrary();
+
+    $("loadingText").textContent = "Đang tải bản đồ thế giới...";
+    const res = await fetch(GEO_URL);
+    if (!res.ok) throw new Error("Không tải được dữ liệu bản đồ.");
+    const geo = await res.json();
+
+    $("loadingText").textContent = "Đang dựng quả địa cầu...";
+    createGlobe(geo.features || []);
+    $("loading").classList.add("hidden");
+
+    loadSheetData().catch(err => {
+      console.error("Sheets error:", err);
+      const statusEl = $("statusBar");
+      statusEl.classList.add("error");
+      statusEl.textContent =
+        "⚠️ Chưa kết nối được Google Sheets (" + err.message + "). Hãy bấm '🔄 Đồng bộ dữ liệu' để thử lại.";
+    });
+
+  } catch (err) {
+    $("loading").innerHTML = `
+      <div style="font-size:34px">🌸</div>
+      <strong>Không thể khởi tạo Earth Botanic-tionary</strong>
+      <span>${escapeHTML(err.message)}</span>
+      <button class="ctrl-btn btn-primary" onclick="location.reload()">Thử lại</button>
+    `;
+  }
+}
+
+start();
+
+})();
+</script>
+</body>
+</html>
